@@ -6,6 +6,9 @@ radius to be defined depending on the energy and the magnet technology.
 **Focusing Doublet:**
 Necessary gradients of the quads depend on beam energy and the divergence. The maximum beam size will influence the aperture and hence the achievable gradient.
 
+Weak focusing considerations need to be handled formally (tapered dipole edge)
+Dispersion function calculation in dipoles (can ignore edge taper)
+
 **Synchrotron loss per turn:**
 
 is dependent on the beam energy and the radius of curvature in the bending magnets. The wiggler will cause additional energy loss. The characteristic energy emitted also depends on the beam energy and the bending radius.
@@ -19,6 +22,7 @@ The plasma density needs to be chosen so that we can achieve 1 or 3 GeV/c2 withi
 ## Questions about setup:
 
 * Why use a gas jet rather than a capillary? Doesn’t this produce a larger energy spread?
+Andrei/Aakash: time
 
 * Wiggler/undulator?
 
@@ -28,21 +32,10 @@ If the other parameters work out, let's use undulator instead of wiggler, so tha
 * Injection spatial profile: what are the clearances like, and regarding the time for the gas to clear, is there a compelling reason that we want to inject in the beamline.
 
 ## Parameter tables
-### Normal conducting (B ~ 1 T)
-|                                          | 1 GeV                | 3 GeV                |
-|------------------------------------------|----------------------|----------------------|
-| $\rho$                                   | 3.34 m               | 10.02 m              |
-| $L_{quad}$                               | 5.25 m               | 62.93 m              |
-| $G_{quad}$                               | 48 T/m, 95 T/m       | 144 T/m, 285 T/m     |
-| Synchrotron losses per turn, $\Delta U$  | 26 keV               | 702 keV              |
-| Characteristic energy $\hbar \omega_c$   | 0.657 keV            | 5.9 keV              |
-
-
-### Superconducting (B ~ 10 T)
-|                                          | 1 GeV                | 3 GeV                |
-|------------------------------------------|----------------------|----------------------|
-| $\rho$                                   | 0.34 m               | 1.02 m               |
-| $L_{quad}$                               | 5.25 m               | 1.6 m                |
-| $G_{quad}$                               | 48 T/m, 95 T/m       | 144 T/m, 285 T/m     |
-| Synchrotron losses per turn, $\Delta U$  | 260 keV              | 7.02 MeV             |
-| Characteristic energy $\hbar \omega_c$   | 6.57 keV             | 59.1 keV             |
+|                                          | 1.5 T, 1 GeV               | 10T, 1 GeV                | 10 T, 3 GeV          |
+|------------------------------------------|----------------------------|---------------------------|----------------------|
+| $\rho$                                   | 2.23 m                     | 0.34 m                    | 1.02 m               |
+| $L_{quad}$                               | 3.5 m                      | 5.25 m                    | 1.6 m                |
+| $G_{quad}$                               | 48 T/m, 95 T/m             | 48 T/m, 95 T/m            | 144 T/m, 285 T/m     |
+| Synchrotron losses per turn, $\Delta U$  | 36 keV                     | 260 keV                   | 7.02 MeV             |
+| Characteristic energy $\hbar \omega_c$   | 0.99 keV                   | 6.57 keV                  | 59.1 keV             |
