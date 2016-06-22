@@ -1,13 +1,14 @@
 # Components of the Compact Ring:
 
-**Ring:**
+## Ring:
 * radius to be defined depending on the energy and the magnet technology.
 * Aperture selection, it probably makes most sense to have asymmetric aperture, wide in horizontal, narrow in vertical
   * ~ 1 cm in vertical, horizontal primarily driven by dispersion once dp/p is determined.
 * Drift sections that do not have the wiggler or injection do not have to be the same length.
 
-**Focusing Doublet:**
+## Focusing Doublet:
 Necessary gradients of the quads depend on beam energy and the divergence. The maximum beam size will influence the aperture and hence the achievable gradient.  The solution we came up with collectively as a homework task is good for the $L + d = 1$ situation, but should be relaxed a bit as we categorize our process/assumptions.  
+
 * Aakash raises the point that the energy variation in design may feed back strongly into this concern.  
 * Doesn't necessarily need to be symmetric focus structure.  
 * Laser can be inserted between the poles of the magnet.  Certainly if it's NC, probably possible if SC
@@ -16,6 +17,12 @@ Necessary gradients of the quads depend on beam energy and the divergence. The m
 
 * Weak focusing needs to be handled formally (tapered dipole edge)
 * Dispersion function calculation in dipoles (can ignore edge taper)
+
+### Parameters from Aakash/Andrei:
+|              | 1 GeV    | 3 GeV    |
+|--------------|----------|----------|
+| Bunch charge | 7 pc     | 10 pc    |
+| $dE/E$       | 2%       | 2%       |
 
 ## Synchrotron loss per turn:
 is dependent on the beam energy and the radius of curvature in the bending magnets. The wiggler will cause additional energy loss. The characteristic energy emitted also depends on the beam energy and the bending radius.
@@ -37,6 +44,7 @@ better spectral bandwidth with an undulator, so it would be helpful to have this
 If the other parameters work out, let's use undulator instead of wiggler, so that we can take advantage of resonance condition.
 
 ## Injector
+* See [Esarey et al.](http://journals.aps.org/rmp/abstract/10.1103/RevModPhys.81.1229) for a general review
 * What are the clearances like?
 * time for the gas to clear?
 * Depletion length, dephasing length
@@ -55,7 +63,7 @@ If the other parameters work out, let's use undulator instead of wiggler, so tha
 | Synchrotron losses per turn, $\Delta U$  | 36 keV                     | 260 keV                   | 7.02 MeV             |
 | Characteristic energy $\hbar \omega_c$   | 0.99 keV                   | 6.57 keV                  | 59.1 keV             |
 
-## Realistic laser parameters (inspired by Leemans 4 GeV paper)
+## Realistic laser parameters (inspired by [Leemans 4 GeV paper](http://link.aps.org/doi/10.1103/PhysRevLett.113.245002))
 ### Plasma parameters to be decided from these
 |                                          |                            |
 |------------------------------------------|----------------------------|
