@@ -10,7 +10,7 @@ class Parameter(object):
         self.name(name)
         self.value(value)
         self.unit(unit)
-
+        
     def name(self,value=None):
         """
         Standard get/set functionality for the name of the parameter.
@@ -62,7 +62,9 @@ class ParameterContainer(object):
         """
         Add the parameter with the given name to the paramters set.
         """
-        self.parameters.append(Parameter(name,*args,**kwargs))
+        new_parameter = Parameter(name,*args,**kwargs)
+        self.parameters.append(new_parameter)
+        return new_parameter
 
     def getParameter(self,name):
         """
