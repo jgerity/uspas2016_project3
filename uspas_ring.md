@@ -59,8 +59,8 @@ If the other parameters work out, let's use undulator instead of wiggler, so tha
 | $\rho$                                   | 2.23 m                     | 0.34 m                    | 1.02 m               |
 | $L_{quad}$                               | 3.5 m                      | 5.25 m                    | 1.6 m                |
 | $G_{quad}$                               | 48 T/m, 95 T/m             | 48 T/m, 95 T/m            | 144 T/m, 285 T/m     |
-| Synchrotron losses per turn, $\Delta U$  | 36 keV                     | 260 keV                   | 7.02 MeV             |
-| Characteristic energy $\hbar \omega_c$   | 0.99 keV                   | 6.57 keV                  | 59.1 keV             |
+| Synchrotron losses per turn, $\Delta U$  | 39 keV                     | 260 keV                   | 7.02 MeV             |
+| Characteristic energy $\hbar \omega_c$   | 1 keV                      | 6.57 keV                  | 59.1 keV             |
 
 ## Realistic laser parameters (inspired by [Leemans 4 GeV paper](http://link.aps.org/doi/10.1103/PhysRevLett.113.245002))
 ### Plasma parameters to be decided from these
