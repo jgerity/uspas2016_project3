@@ -3,12 +3,15 @@ import os
 import argparse
 import numpy as np
 from scipy import constants
+from IPython.display import display_markdown, Markdown, display
 
 class Parameter(object):
 
     def __init__(self,name,value=None, unit=None):
         self.name(name)
+        self.v = None
         self.value(value)
+        self.u = None
         self.unit(unit)
         
     def name(self,value=None):
@@ -54,6 +57,9 @@ class Parameter(object):
         return " = ".join(output)
 
 class ParameterContainer(object):
+    """
+    A class to hold multiple parameters.
+    """
 
     def __init__(self):
         self.parameters = []
@@ -75,6 +81,12 @@ class ParameterContainer(object):
                 return parameter
         return None
 
+    def __contains__(self,name):
+        """
+        Allows checking for the existence of a specific parameter.
+        """
+        return self.getParameter(name) is not None
+
     def __iter__(self):
         """
         Allows us to iterate over the object instead of referencing parameters.
@@ -91,6 +103,124 @@ class ParameterContainer(object):
             output.append(str(parameter))
         return "\n".join(output)
 
+class ParameterColumn(object):
+    """
+    A class to associate parameter containers to a give set of parameters.
+    """
+    
+    def __init__(self,parameter_container):
+        self.header_parameters = parameter_container
+        self.parameter_containers = {}
+
+    def associateParameterContainer(self,section_name,parameter_container):
+        """
+        Stores the parameter container in a dictionary keyed by section_name.
+        """
+        self.parameter_containers[section_name] = parameter_container
+
+
+class ParameterTable(object):
+    """
+    Stores multiple parameter columns for comparison.
+    """
+
+    def __init__(self):
+        self.columns = []
+
+    def addColumn(self,parameter_column):
+        """
+        Adds a parameter column to the list.
+        """
+        self.columns.append(parameter_column)
+
+    def __iter__(self):
+        """
+        Provides easy access to the parameter_columns.
+        """
+        for column in self.columns:
+            yield column
+
+    def getFormattedRowNames(self,section_name=None):
+        """
+        Returns a parameter container with no value but with parameter names and units
+        that appear in at least one of the parameter columns.
+        """
+        output = ParameterContainer()
+        for column in self:
+            if section_name is None:
+                for s_name, parameter_container in column.parameter_containers.iteritems():
+                    for parameter in parameter_container:
+                        if parameter.name() in output:
+                            continue
+                        output.addParameter(parameter.name(),unit=parameter.unit())
+            else:
+                parameter_container = column.parameter_containers[section_name]
+                for parameter in parameter_container:
+                    if parameter.name() in output:
+                        continue
+                    output.addParameter(parameter.name(),unit=parameter.unit())
+        return output
+
+
+    def printTable(self,section_name=None,width=32):
+        """
+        Prints the content in a mark-up table.
+        """
+        table = []
+
+        header = [""]
+        line = [":-:"]
+        for column in self.columns:
+            cell_content = []
+            for parameter in column.header_parameters:
+                cell_content.append(str(parameter))
+            cell_string = ",".join(cell_content)
+            header.append(cell_string)
+            line.append(":-:")
+        header_string = "| " + " | ".join(header) + " |"
+        table.append(header_string)
+        line_string = "| " + " | ".join(line) + " |"
+        table.append(line_string)
+        if section_name is None:
+            for s_name, parameter_container in column.parameter_containers.iteritems():
+                row_names = self.getFormattedRowNames(s_name)
+                for parameter in row_names:
+                    name = parameter.name()
+                    unit = parameter.unit()
+                    if unit is None:
+                        row = [name]
+                    else:
+                        row = [name + "(" + unit + ")"]
+                    for column in self:
+                        try:
+                            value = column.parameter_containers[s_name].getParameter(name).value()
+                            row.append(str(value))
+                        except:
+                            row.append("")
+                    row_string = "| " + " | ".join(row) + " |"
+                    table.append(row_string)
+                
+        else:
+            parameter_container = column.parameter_containers[section_name]
+            row_names = self.getFormattedRowNames(section_name)
+            for parameter in row_names:
+                name =parameter.name()
+                unit = parameter.unit()
+                if unit is None:
+                    row = [name]
+                else:
+                    row = [name + " (" + unit + ")"]
+                for column in self:
+                    try:
+                        value = column.parameter_containers[section_name].getParameter(name).value()
+                        row.append(str(value))
+                    except:
+                        row.append("")
+                row_string = "| " + " | ".join(row) + " |"
+                table.append(row_string)
+        for row in table:
+            display(Markdown(row)) #"".join(table), raw=True)
+                    
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='For the unifying USPAS 2016 course.  This program prints the parameters based off the input energy and field strength.')
     parser.add_argument('energy', type=float, help='The energy of the beam in GeV.')
