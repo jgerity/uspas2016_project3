@@ -27,16 +27,15 @@ Necessary gradients of the quads depend on beam energy and the divergence. The m
 ## Synchrotron loss per turn:
 is dependent on the beam energy and the radius of curvature in the bending magnets. The wiggler will cause additional energy loss. The characteristic energy emitted also depends on the beam energy and the bending radius.
 
-
 ## Questions about setup:
 
 * Why use a gas jet rather than a capillary? Doesn’t this produce a larger energy spread?
 Andrei/Aakash: time to clear aperture before next term is main concern
 
 ## Wiggler/undulator
-* Energy of emitted radiation ~ 10 keV
-* Calculation of value of K
-* Can an undulator be used?
+* Energy of emitted radiation ~ 10 keV for 3 GeV case, 0.4 keV for 1 GeV case (chosen by middle of water window)
+* Calculation of value of K (~5)
+* ~~Can an undulator be used?~~ No, the demands are too extreme for this regime
 * At what point shall the beam be discarded?  What is the driving lifetime mechanism?
 
 ### Andrei's remarks during lecture:
