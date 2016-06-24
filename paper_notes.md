@@ -28,6 +28,7 @@ We report here the results of one week long investigation performed during June 
   * Shall this be partitioned into a table for each of the sections described above?
 
 # Discussion / future work
+  * Clearing of plasma during first turn, clearing electrodes?  Is this adequate?  Are there real-world examples of devices with the ~20 ns rise time necessary?  Andrei mentioned TESLA FEL specifically, Aakash mentioned some foil pre-plasma clearing work that may be relevant
   * Estimated light source parameters of this machine
     * Opening angle, spot size?
   * 2nd-gen light source was the "target"
