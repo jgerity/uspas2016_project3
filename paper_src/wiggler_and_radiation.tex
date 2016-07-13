@@ -1,0 +1,37 @@
+\documentclass[]{article}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{bbold}
+
+%Matrix typography representation
+\newcommand*{\matr}[1]{\mathbf{#1}} % undergraduate algebra version
+%\newcommand*{\matr}[1]{#1}          % pure math version
+%\newcommand*{\matr}[1]{\bm{#1}}     % ISO complying version
+
+\begin{document}
+Table \ref{tab:radiation}  details the radiation source for various design parameters.  For all sets of parameters, a standard length of $2 \text{m}$ was chosen for the undulating magnetic field region resulting in the electron pulse emitting x-rays for approximately $6.7 \text{nsec}$ pulses before the electron pulse is scraped by the apertures.  As can be seen in the table, x-ray energy was designed to either be within the water window ($0.4 \text{keV}$) or to be fairly hard ($10 \text{keV}$) depending on the energy of the electron pulse.  The chosen parameters result in the source being near the wiggler/undulator transition or well within the wiggler regime, respectively, as can be seen by the parameter K.  Of the chosen parameter sets, the $1 GeV$ electrons with the superconducting bending magnetics ($10 \text{T}$) resulted in the largest brightness.
+
+\begin{table}[]
+  \centering
+  \caption{Chosen (first box) and derived (second box) parameters detailing X-ray source. }
+  \label{tab:radiation}
+  \begin{tabular}{|c|ccc|}
+    \hline
+    $\text{E}_\text{electron} (\text{GeV})$ &  $1.0$ & $1.0$ & $3.0$ \\
+    $\text{B}_\text{turn} (\text{T})$ & $1.5$ & $10.0$ & $10.0$ \\
+    $\text{E}_\text{photon}$ (\text{keV}) & $0.4$ & $0.4$ & $10.0$ \\
+    $\lambda_\text{wiggler}$ (\text{mm}) & $15$ & $15$ & $100$ \\
+    \hline
+    $\text{B}_\text{wiggler} (\text{T})$ & $2.0$ & $2.0$ & $5.6$ \\
+    $\text{K}$ & $0.84$ & $0.84$ & $16$ \\
+    $\text{E}_\text{radiated} (\text{keV})$ & $2.1$ & $2.1$ & $140$ \\
+    $\text{Brilliance per electron lifetime} \left ( \frac{\text{photons}}{\text{mm}^2 \text{mrad}^2 \text{sec}} \right )$ & $3.3 \times 10^{10}$ & $8.7  \times 10^{10}$ & $5.9  \times 10^{10}$ \\
+    $\text{Brilliance per spill} \left ( \frac{\text{photons}}{\text{mm}^2 \text{mrad}^2 \text{sec}} \right )$& $4.7 \times 10^{15}$ &  $78 \times 10^{15}$ & $27  \times 10^{15}$ \\
+    $\text{x-ray train duration} ( \mu\text{sec})$ & $60$ & $1.1$ & $2.2$\\
+    \hline 
+  \end{tabular}
+\end{table}
+ 
+
+\end{document}
