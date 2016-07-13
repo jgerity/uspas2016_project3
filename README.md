@@ -15,6 +15,10 @@ Working draft of notes on ring design that will be updated as we mature the proj
 
 Primary IPython/Jupyter notebook for vital calculations concerning the project.
 
+### USPAS_20160701_Plasma_Calculations_Updated.ipynb
+
+Separate Ipython/Jupyter notebook for laser/plasma calculations.
+
 ### parameters.py
 
 Utility script to calculate relevant machine parameters.
