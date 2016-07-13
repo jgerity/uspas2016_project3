@@ -8,15 +8,35 @@ With a given laser power of 379 TW, a laser wavelength of 780 nm, and a pulse du
 
 ##output beam characteristics??? Need help with this.
 
+##NEW TABLE CONSISTENT WITH USPAS_20160701_Plasma_Calculations_Updated.ipynb
 
+|                                          |                            |
+|------------------------------------------|----------------------------|
+| Laser wavelength                         | 780 nm (Ti-sapphire)       |
+| Laser power                              | 379 TW                     |
+| Spot size                                | 3.8e-9 m^2                 |
+| Intensity                                | 9.9e18 W/cm^2              |
+| a_0                                      | 2.1                        |
+| Laser pulse length (FWHM)                | 50 fs                      |
+| Rep rate                                 | ~ 1 Hz                     |
+| Energy per pulse                         |  20 J                      |
 
+## Plasma parameters
+|                                          |                            |
+|------------------------------------------|----------------------------|
+| Critical density                         | ~1.5e21 cm^-3              |
+| Plasma density                           | 1.75e17 cm^-3              |
+| Plasma wavelength                        | 76 um                      |
+| Plasma frequency                         | 3.97e12 Hz                 |
+| Plasma angular frequency                 | 2.49e13 s^-1               |
+| Accelerating gradient                    | 0.42 GeV/cm                |
+| Bubble size                              | 38 um                      |
+| Depletion length                         | 16.9 cm                    |
+| Dephasing length                         | 33.5 cm                    |
+| Acceleration length for 1 GeV            | 2.4 cm                     |
+| Acceleration length for 3 GeV            | 7.2 cm                     |
 
-
-
-
-
-
-##TABLE BELOW WILL NEED TO BE UPDATED
+##OLD TABLE FROM CLASS
 
 ## Realistic laser parameters (inspired by [Leemans 4 GeV paper](http://link.aps.org/doi/10.1103/PhysRevLett.113.245002))
 |                                          |                            |
