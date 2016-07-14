@@ -1,0 +1,68 @@
+\documentclass[12pt, openany]{scrartcl}
+\usepackage[ansinew]{inputenc}
+\usepackage{sidecap}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{eurosym}
+\usepackage{color}
+\usepackage{amsmath}	
+\usepackage{url}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{notoccite}
+
+\usepackage{longtable}
+
+
+
+% for explanation of commands see e.g.: https://de.wikibooks.org/wiki/LaTeX-Kompendium
+
+\begin{document}
+
+\section{Injection parameters}
+
+
+\begin{table}[ht]
+\begin{center}
+\captionof{table}{Realistic laser parameters} 
+%\caption {Lithium properties at 973 K}
+\begin{tabular}{ |l|c| }
+  \hline
+Laser wavelength & \SI{780}{nm}\\
+Laser power & \SI{379}{TW}\\
+Spot size &  \SI{3.8e-9}{m^2} \\
+Intensity & \SI{9.9e18}{W/cm^2} \\
+a\_0 & \SI{2.1}{} \\
+Laser pulse length (FWHM) & \SI{50}{fs} \\
+Reprate &  	$\sim$\SI{1}{Hz} \\
+Pulse Energy & \SI{20}{J} \\
+  \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[ht]
+\begin{center}
+\captionof{table}{Plasma parameters} 
+\begin{tabular}{ |l|c| }
+  \hline
+\rule{0pt}{3ex}Critical density & $\sim$\SI{1.5e21}{cm^-3}\\
+Plasma density & \SI{1.75e17 }{cm^-3}\\
+Plasma wavelength &  \SI{76}{\micro m} \\
+Plasma frequency & \SI{3.97e12}{Hz} \\
+Plasma angular frequency & \SI{2.49e13}{s^-1} \\
+Accelerating gradient & \SI{0.42}{GeV/cm} \\
+Bubble size &  \SI{38}{\micro m} \\
+Depletion length & \SI{16.9}{cm} \\
+Dephasing length & \SI{33.5}{cm} \\
+Acceleration length for 1 GeV & \SI{2.4}{cm} \\
+Acceleration length for 3 GeV & \SI{7.2}{cm} \\
+  \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+	
+\end{document}
