@@ -6,3 +6,16 @@ energy.
 
 I wonder if the culprit is the factor 3.33 in the formula for wiggler_B in "project_3.ipynb", and whether it would be correct to
 replace it by (B-rho) / wiggler_rho
+
+
+
+The energy loss per meter in the wiggler may also warrant some further consideration.
+
+The value is currently calculated using (photons_per_unit_length_per_electron*photon_energy), which is the number of photons
+emitted per meter by one electron, multiplied by the characteristic photon energy.
+A plausible alternative is to use U0*(wiggler_length / (2*np.pi*wiggler_rho)), where U0 is the SR energy loss per turn (equation
+3.8 in the book).
+However, the first value is larger than the second one by a factor of 9/4 because a factor of 4/9 is dropped in the estimation
+of the number of photons emitted per unit length (book equation 3.22). If one simply does U0 / (2*np.pi*R*hbar*omega_c), one would
+get a 4/9 in front of alpha*gamma/R.
+
