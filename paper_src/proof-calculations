@@ -1,0 +1,8 @@
+There appears to be a discrepany in the wiggler parameters.
+
+Take the 1 GeV case as an example. If wiggler_B[T] = 2.0, the characteristic photon energy (calculated using equation 3.20 in the
+book) is 1.33 keV, which is inconsistent with the desired energy of 0.4 keV, whereas wiggler_B[T] = 0.601 would give the desired
+energy.
+
+I wonder if the culprit is the factor 3.33 in the formula for wiggler_B in "project_3.ipynb", and whether it would be correct to
+replace it by (B-rho) / wiggler_rho
