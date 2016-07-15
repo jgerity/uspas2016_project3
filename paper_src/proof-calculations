@@ -5,7 +5,7 @@ book) is 1.33 keV, which is inconsistent with the desired energy of 0.4 keV, whe
 energy.
 
 I wonder if the culprit is the factor 3.33 in the formula for wiggler_B in "project_3.ipynb", and whether it would be correct to
-replace it by (B-rho) / wiggler_rho
+replace the formula by (B-rho) / wiggler_rho
 
 
 
@@ -19,3 +19,25 @@ However, the first value is larger than the second one by a factor of 9/4 becaus
 of the number of photons emitted per unit length (book equation 3.22). If one simply does U0 / (2*np.pi*R*hbar*omega_c), one would
 get a 4/9 in front of alpha*gamma/R.
 
+
+
+The calculation of the allowable_e_loss involves many factors of 2. I hope I have understood the parameters in "project_3.ipynb" 
+correctly:
+
+horizontal_aperture: the wall-to-wall or tip-to-tip aperture, i.e. the distance from element center to bounary is half its value
+E_spread: as the comment says, 2% means +/- 1%
+beam_x: full extent of an idealized beam in the x-direction, i.e. dispersion function times E_spread. Equals the difference 
+between the x coordinates of the fastest and slowest electrons, to 1st-order in delta_p/p, if x' = 0 in their initial conditions.
+
+I remember that we agreed in class to use 2*beam_x as the effective beam size in the consideration of offset and loss. 
+If we are to do that, it seems that the formula of allowable_e_loss is missing a factor of 2 before beam_x.
+
+For example, (I believe we used the assumption dispersion function = rho), if rho = 2m, then beam_x is 4cm, and the beam's 
+effective size in x is 8cm. Putting the beam in a 10cm aperture, the beam can only be offset by 1cm on either side before 
+it is considered lost.
+
+Thus the allowable delta_p/p is 0.5*(aperture - 2*beam_x) / rho, which is equivalent to 
+(horizontal_aperature - 2*beam_x)/(2*rho)
+
+But this would fare very poorly in the 1 GeV normal conducting case, where 2*beam_x is something like 0.9*horizontal_aperture, 
+which would lead to a very small allowable_e_loss
