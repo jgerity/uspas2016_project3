@@ -85,10 +85,12 @@ Combining the field of Laser plasma acceleration (LWPA) with the field of synchr
 In this paper we want to show the results of our design study of a compact synchrotron light source that creates \SI{0.4}{keV} or \SI{10}{keV} photons. We estimate the design parameters of the compact light source, the achievable   brilliance, and we discuss the feasibility and challenges of the design. 
 Our design uses a laser plasma gas-jet accelerator to self-inject and accelerate electrons to either \SI{1}{GeV} or \SI{3}{GeV} \cite{UNIFYINGPHYSICS}. Right after plasma, the electrons are focused using a quadrupole doublet and they are kept on circular trajectory using four 90 degree dipole bending magnets (see figure xx). The desired radiation is produced by a \SI{2}{m} long wiggler magnet in one of the straight drift sections.
 
+Additionally we want to discuss the parameters of the radiation produced by the dipole bending magnets and the betatron motion of the electron beam in the plasma bubble. A compton light source could be realized by making the electron bunch collide with a laser pulse.
+
 \section{DESIGN OF THE MACHINE}
 \subsection{Plasma based electron injector}
 
-The laser wakefield acceleration and injection stage provides the electron beam for the compact ring. An intense laser pulse from a Ti:Sapphire laser impinges on a gas jet, ionizes the plasma, and creates strong plasma wakefields to accelerate and self inject electrons. 
+The laser wakefield acceleration and injection stage provides the electron beam for the compact ring. An intense laser pulse from a Ti:Sapphire laser impinges on a gas jet, ionizes the plasma, and creates strong plasma wakefields to accelerate and self inject electrons. The laser pulse is injected through a window in the bending dipole.
 
 We choose to use a typical Ti:Sapphire laser system with a laser wavelength of $780\,\rm{nm}$, a pulse duration of $50\,\rm{fs}$, a maximum laser power of $400\,\rm{TW}$, and a laser spot size of $3.8\,\rm{nm}$. The laser intensity is approximately $9.9*10^{18}\,\rm{W/cm}^2$ which corresponds to an $a_0$ of about $2.1$ for a Gaussian radial laser distribution and $20\,\rm{J}$ of energy per pulse.
 The chosen plasma density of the gas-jet is \SI{1.75e17}{cm^-3} and optimizes the achievable maximum electron energy. We also made sure that the laser frequency is above the critical plasma frequency.
@@ -99,7 +101,7 @@ This means that our target energies of $1\,\rm{GeV}$ and $3\,\rm{GeV}$ can be re
 \begin{table}[hbt]
 %   \vspace*{-.5\baselineskip}
    \centering
-   \caption{Plasma injector Laser parameters}
+   \caption{Laser parameters of the plasma injector}
    \begin{tabular}{lc}
        \toprule
 Laser wavelength & \SI{780}{nm}\\
