@@ -79,13 +79,22 @@ We report here the results of one week long investigation performed during June 
 
 
 \section{INTRODUCTION}
-As laser technology and costs improve, the application to the field of particle acceleration becomes more appealing. Laser acceleration is shown to provide great accelerating potentials in a small region, providing means to create compact accelerator sources. With that in mind, we have taken our first steps in a conceptual design of a compact light source. The goal behind this project was to find initial estimations of parameters for the light source to determine feasibility of the design and show what may be potentially achievable with imminent technology. This project was part of a week-long course at US particle accelerator school under direction of Prof. Andrei Seryi in collaboration with the students of this course. This was a unique and challenging approach to a design that is unique in itself. The focus of the course was to bring together the disciplines of Lasers, particle accelerators and plasma all while considering various inventive principles within the TRIZ framework. TRIZ is a method of inventiveness that has one consider the contradictions within the problem to be solved and provide principles used in solutions to these contradictions that have been successful in the past. The design relies on laser plasma acceleration with self-injected electrons. Laser plasma acceleration refers to many mechanisms used for accelerating particles, but for this project we focus on one in particular. High intensity laser pulses are sent to a region filled with a gas. The electrons in the gas are pushed away by the ponderomotive force and separate from the heavier ions. After they separate, the charge of the heavy ions attract the electrons back into the mass creating a plasma wave. This mechanism creates a “bubble” or many “bubbles” of charge separation as the electrons oscillate. As electrons move off of the wave by outrunning it, a phenomenon called “wave breaking” where the electrons are injected into the bubble, provides the particles that are to be accelerated \cite{UNIFYINGPHYSICS}.
+
+Combining the field of Laser plasma acceleration (LWPA) with the field of synchrotron light production, offers the possibility of creating compact accelerators and light sources, because of the high accelerating gradients that can be achieved using plasma.
+
+In this paper we want to show the results of our design study of a compact synchrotron light source that creates \SI{0.4}{keV} or \SI{10}{keV} photons. We estimate the design parameters of the compact light source, the achievable   brilliance, and we discuss the feasibility and challenges of the design. 
+Our design uses a laser plasma gas-jet accelerator to self-inject and accelerate electrons to either \SI{1}{GeV} or \SI{3}{GeV} \cite{UNIFYINGPHYSICS}. Right after plasma, the electrons are focused using a quadrupole doublet and they are kept on circular trajectory using four 90 degree dipole bending magnets (see figure xx). The desired radiation is produced by a \SI{2}{m} long wiggler magnet in one of the straight drift sections.
 
 \section{DESIGN OF THE MACHINE}
-\subsection{Plasma based electon injector}
+\subsection{Plasma based electron injector}
 
-A laser wakefield acceleration/injection stage provides the electron beam for the compact ring. In this scheme, an intense laser pulse from a Ti:Sapphire laser impinges on a gas jet. 
-With a given laser power of $379\,\rm{TW}$, a laser wavelength of $780\,\rm{nm}$, and a pulse duration of $50\,\rm{fs}$, and a spot size of $3.8\,\rm{nm}$, we obtain a laser intensity of approximately $9.9*10^18\,\rm{W/cm}^2$, $a_0$ of about $2.1$ for a Gaussian radial laser distribution, and an energy per pulse of $20\,\rm{J}$. The laser spot size and duration were chosen to be typical for this class of laser along with the plasma parameters to ensure that these were matched. The plasma density was chosen to be below the critical density. After calculating the plasma wavelength we ensured that the laser pulse duration was less than the $\pi/\omega_{pe}$. The depletion and dephasing lengths were calculated to be approximately $17\,\rm{cm}$ and $35\,\rm{cm}$ respectively, thus bounding our total possible acceleration length to $17\,\rm{cm}$. Using our target energies of $1\,\rm{GeV}$ and $3\,\rm{GeV}$, we then calculate how long our acceleration stage needs to be based on a conservative estimate of the magnitude of the gradient in the plasma ($0.42\,\rm{GeV/cm}$). This results in acceleration stages of $2.4\,\rm{cm}$ and $7.2\,\rm{cm}$ respectively. This acceleration length may require a novel gas jet setup, particularly for the $3\,\rm{GeV}$ case.
+The laser wakefield acceleration and injection stage provides the electron beam for the compact ring. An intense laser pulse from a Ti:Sapphire laser impinges on a gas jet, ionizes the plasma, and creates strong plasma wakefields to accelerate and self inject electrons. 
+
+We choose to use a typical Ti:Sapphire laser system with a laser wavelength of $780\,\rm{nm}$, a pulse duration of $50\,\rm{fs}$, a maximum laser power of $400\,\rm{TW}$, and a laser spot size of $3.8\,\rm{nm}$. The laser intensity is approximately $9.9*10^{18}\,\rm{W/cm}^2$ which corresponds to an $a_0$ of about $2.1$ for a Gaussian radial laser distribution and $20\,\rm{J}$ of energy per pulse.
+The chosen plasma density of the gas-jet is \SI{1.75e17}{cm^-3} and optimizes the achievable maximum electron energy. We also made sure that the laser frequency is above the critical plasma frequency.
+
+The depletion and dephasing lengths for this injector system are $\sim 17\,\rm{cm}$ and $\sim 35\,\rm{cm}$ (cite used formulas), thus bounding our total possible acceleration length to $17\,\rm{cm}$. The maximum accelerating gradient (formula) is \SI{420}{MeV/cm}.
+This means that our target energies of $1\,\rm{GeV}$ and $3\,\rm{GeV}$ can be reached in $2.4\,\rm{cm}$ and $7.2\,\rm{cm}$. This acceleration length may require a novel gas jet setup, particularly for the $3\,\rm{GeV}$ case.
 
 \begin{table}[hbt]
 %   \vspace*{-.5\baselineskip}
@@ -128,8 +137,6 @@ Acceleration length for 3 GeV & \SI{7.2}{cm} \\
    \label{laserparameters}
 %   \vspace*{-\baselineskip}
 \end{table}
-
-
 
 \subsection{Magnet Design}
 The superconducting design of the \SI{1}{GeV} ring (see Fig XX) is laid out as four $90\,\rm{-degree}$ sector dipoles, with the injection system located in the middle of a \SI{2}{m} drift, enclosed by a pair of focusing quadrupole doublets (strengths $\sim$ \SI{50}{T/m}, \SI{100}{T/m}) used to begin transport of the diverging electron beam born from the laser wakefield injector. The wiggler is located in the opposing drift space, and the alternate drift spaces are each \SI{0.5}{m}, leaving enough space for limited diagnostics.
@@ -175,11 +182,7 @@ Table \ref{tab:radiation}  details the radiation source for various design param
  
 \section{DISCUSSION}
 
-Here is an estimation of the Gas flow and beam round-trip based plasma clearance.
-
-Gas Flow velocity from typical gas jets (worked out from [1]) : $M = 20 \sim 20\,\rm{km/sec}$ Beam "transit-time" for a \SI{10}{m} ring : $\sim$ \SI{30}{ns} Gas flow distance in beam “transit time” :$\sim$SI{600}{$\mu$m} $10^{14}\,\rm{W/cm}^2$ ionization thresh. (ASSUME) - plasma col radius (\SI{35}{$\mu$m} laser) : \SI{142.64} {$\mu$m}
-
-This “back of the envelope calculation” for a \SI{10}{m} ring with \SI{20}{km/sec} Gas jet flow velocity [1] suggest that the plasma column has already propagated far enough to eliminate the possibility of its any further interaction with the beam. So, the electron beam is only likely to interact with the residual gas and not the laser-ionized plasma column. Thus, the interaction process of the beam is dominated by random scattering off the gas (which leads to a divergence growth of the order of micro-rad) as opposed to a coherent lensing of the order of milli-rad by the plasma [2]. Since, we know that the accelerated beam charge is only \SI{10}{s} of pC and its dimensions about $\sigma_r = 5\mu\rm{m}$ / $\sigma_z = 10\,\mu\rm{m}$, it is unlikely that the beam will ionize any gas.
+In this section we would like to discuss the influence of the remaining gas/plasma from the injector onto to the circulating electron beam. The gas flow velocity from typical gas jets is $M = 20\,\rm{km/sec}$ \cite{GASFLOW}. One electron beam turn in a \SI{10}{m} cirumference ring takes $\sim$ \SI{30}{ns}, and the gas flow advances by $\sim$SI{600}{$\mu$m}. Taking $10^{14}\,\rm{W/cm}^2$ as ionization threshold of the plasma and assuming a radial laser size of \SI{35}{$\mu$m} gives a plasma channel radius of \SI{142.64} {$\mu$m}. This estimate suggest that the plasma column has already propagated far enough to eliminate the possibility of its any further interaction with the beam. So, the electron beam is only likely to interact with the residual gas and not the laser-ionized plasma column. Thus, the interaction process of the beam is dominated by random scattering off the gas (which leads to a divergence growth of the order of micro-rad) as opposed to a coherent lensing of the order of milli-rad by the plasma [2]. We think that it is unlikely that an electron beam with pC charge with a beam size of $\sigma_r = 5\mu\rm{m}$ and $\sigma_z = 10\,\mu\rm{m}$ ionizes gas.
 
 \section{CONCLUSIONS}
 
@@ -189,6 +192,10 @@ The design presented is very promising with respect to current compact synchrotr
 
 \begin{thebibliography}{99}
 \bibitem{UNIFYINGPHYSICS} Unifying physics of accelerators, lasers and plasma, A. Seryi, CRC Press, 2015.
+
+\bibitem{GASFLOW} High density gas jet nozzle design for laser target production, Review of Scientific Instruments 72, 2961 (2001); doi: 10.1063/1.1380393
+
+\bibitem{BPINTER}Beam interaction with Plasma-Vacuum interface, CLIC Experimental \& Breakdown Studies Meeting, August 2013 
 
 \bibitem{DESY} DESY Photon science: \verb"http://photon-science.desy.de/research/studentsteaching/sr_and_fel_basics/fel_basics/tdr_spectral_characteristics/index_eng.html" (15.07.2016).
 
