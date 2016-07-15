@@ -1,0 +1,218 @@
+\documentclass[a4paper,
+               %boxit,
+               %titlepage,   % separate title page
+               %refpage      % separate references
+              ]{jacow}
+
+\makeatletter%
+	\ifboolexpr{bool{xetex}}
+	 {\renewcommand{\Gin@extensions}{.pdf,%
+	                    .png,.jpg,.bmp,.pict,.tif,.psd,.mac,.sga,.tga,.gif,%
+	                    .eps,.ps,%
+	                    }}{}
+\makeatother
+
+\ifboolexpr{bool{xetex} or bool{luatex}} % test for XeTeX/LuaTeX
+ {}                                      % input encoding is utf8 by default
+ {\usepackage[utf8]{inputenc}}           % switch to utf8
+
+\usepackage[USenglish]{babel}			 
+\usepackage{tikz-palattice}
+\usepackage[final]{pdfpages}
+\usepackage{multirow}
+\usepackage{ragged2e}
+
+%
+% if BibLaTeX is used
+%
+\ifboolexpr{bool{jacowbiblatex}}%
+ {%
+  \addbibresource{jacow-test.bib}
+  \addbibresource{biblatex-examples.bib}
+ }{}
+\listfiles
+
+%
+% command for typesetting a \section like word
+%
+\newcommand\SEC[1]{\textbf{\uppercase{#1}}}
+\newcommand*{\matr}[1]{\mathbf{#1}}
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+%%
+%%   Lengths for the spaces in the title
+%%   \setlength\titleblockstartskip{..}  %before title, default 3pt
+%%   \setlength\titleblockmiddleskip{..} %between title + author, default 1em
+%%   \setlength\titleblockendskip{..}    %afterauthor, default 1em
+
+%\copyrightspace %default 1cm. arbitrary size with e.g. \copyrightspace[2cm]
+
+% testing to fill the copyright space
+%\usepackage{eso-pic}
+%\AddToShipoutPictureFG*{\AtTextLowerLeft{\textcolor{red}{COPYRIGHTSPACE}}}
+
+\begin{document}
+
+\title{Compact ring-based X-ray source with
+on-orbit and on-energy laser-plasma
+injection}
+
+\author{Marlene Turner \textsuperscript{1} \thanks{marlene.turner@cern.ch}, CERN, Geneva, Switzerland\\
+Jeremy Cheatam, Auralee Edelen, CSU, Fort Collins, Colorado, USA \\
+Osip Lishilin, DESY Zeuthen, Zeuthen, Germany\\
+Aakash Ajit Sahai, Imperial College Physics, London, Great Britain\\
+Andrei Seryi, JAI, Oxford, Great Britain\\
+Brandon Zerbe, MSU, East Lansing, Michigan\\
+Andrew Lajoie, Chun Yan Jonathan Wong, NSCL, East Lansing, Michigan\\
+Kai Shih, SBU, Stony Brook, New York\\
+James Gerity, Texas A\&M University, College Station\\
+Gerard Lawler, UCLA, Los Angeles, California\\
+Kookjin Moon, UNIST, Ulsan, Korea\\
+		\textsuperscript{1}also at Technical University of Graz, Graz, Austria}
+	
+\maketitle
+
+%
+\begin{abstract}
+We report here the results of one week long investigation performed during June 2016 USPAS class "Unifying physics\ldots" on conceptual design of an X-ray source based on a compact ring with on-orbit and on-energy laser-plasma acceleration injection (mini-project 10.4 from \cite{UNIFYINGPHYSICS}). We describe three versions of the light source, based on $1\,\rm{GeV}$ normal conducting and superconducting bending magnets, and $3\,\rm{GeV}$ superconducting. We describe the design choices, present the tables of parameters of the machines, and describe possible next steps of the design and optimization of the considered machines.
+\end{abstract}
+
+
+\section{INTRODUCTION}
+As laser technology and costs improve, the application to the field of particle acceleration becomes more appealing. Laser acceleration is shown to provide great accelerating potentials in a small region, providing means to create compact accelerator sources. With that in mind, we have taken our first steps in a conceptual design of a compact light source. The goal behind this project was to find initial estimations of parameters for the light source to determine feasibility of the design and show what may be potentially achievable with imminent technology. This project was part of a week-long course at US particle accelerator school under direction of Prof. Andrei Seryi in collaboration with the students of this course. This was a unique and challenging approach to a design that is unique in itself. The focus of the course was to bring together the disciplines of Lasers, particle accelerators and plasma all while considering various inventive principles within the TRIZ framework. TRIZ is a method of inventiveness that has one consider the contradictions within the problem to be solved and provide principles used in solutions to these contradictions that have been successful in the past. The design relies on laser plasma acceleration with self-injected electrons. Laser plasma acceleration refers to many mechanisms used for accelerating particles, but for this project we focus on one in particular. High intensity laser pulses are sent to a region filled with a gas. The electrons in the gas are pushed away by the ponderomotive force and separate from the heavier ions. After they separate, the charge of the heavy ions attract the electrons back into the mass creating a plasma wave. This mechanism creates a “bubble” or many “bubbles” of charge separation as the electrons oscillate. As electrons move off of the wave by outrunning it, a phenomenon called “wave breaking” where the electrons are injected into the bubble, provides the particles that are to be accelerated \cite{UNIFYINGPHYSICS}.
+
+\section{DESIGN OF THE MACHINE}
+\subsection{Plasma based electon injector}
+
+A laser wakefield acceleration/injection stage provides the electron beam for the compact ring. In this scheme, an intense laser pulse from a Ti:Sapphire laser impinges on a gas jet. 
+With a given laser power of $379\,\rm{TW}$, a laser wavelength of $780\,\rm{nm}$, and a pulse duration of $50\,\rm{fs}$, and a spot size of $3.8\,\rm{nm}$, we obtain a laser intensity of approximately $9.9*10^18\,\rm{W/cm}^2$, $a_0$ of about $2.1$ for a Gaussian radial laser distribution, and an energy per pulse of $20\,\rm{J}$. The laser spot size and duration were chosen to be typical for this class of laser along with the plasma parameters to ensure that these were matched. The plasma density was chosen to be below the critical density. After calculating the plasma wavelength we ensured that the laser pulse duration was less than the $\pi/\omega_{pe}$. The depletion and dephasing lengths were calculated to be approximately $17\,\rm{cm}$ and $35\,\rm{cm}$ respectively, thus bounding our total possible acceleration length to $17\,\rm{cm}$. Using our target energies of $1\,\rm{GeV}$ and $3\,\rm{GeV}$, we then calculate how long our acceleration stage needs to be based on a conservative estimate of the magnitude of the gradient in the plasma ($0.42\,\rm{GeV/cm}$). This results in acceleration stages of $2.4\,\rm{cm}$ and $7.2\,\rm{cm}$ respectively. This acceleration length may require a novel gas jet setup, particularly for the $3\,\rm{GeV}$ case.
+
+\begin{table}[hbt]
+%   \vspace*{-.5\baselineskip}
+   \centering
+   \caption{Plasma injector Laser parameters}
+   \begin{tabular}{lc}
+       \toprule
+Laser wavelength & \SI{780}{nm}\\
+Laser power & \SI{379}{TW}\\
+Spot size &  \SI{3.8e-9}{m^2} \\
+Intensity & \SI{9.9e18}{W/cm^2} \\
+a\_0 & \SI{2.1}{} \\
+Laser pulse length (FWHM) & \SI{50}{fs} \\
+Reprate &  	$\sim$\SI{1}{Hz} \\
+Pulse Energy & \SI{20}{J} \\
+       \bottomrule
+   \end{tabular}
+   \label{laserparameters}
+%   \vspace*{-\baselineskip}
+\end{table}
+
+\begin{table}[hbt]
+%   \vspace*{-.5\baselineskip}
+   \centering
+   \caption{Plasma parameters}
+   \begin{tabular}{lc}
+       \toprule
+Plasma density & \SI{1.75e17 }{cm^-3}\\
+Plasma wavelength &  \SI{76}{\micro m} \\
+Plasma frequency & \SI{3.97e12}{Hz} \\
+Plasma angular frequency & \SI{2.49e13}{s^-1} \\
+Accelerating gradient & \SI{0.42}{GeV/cm} \\
+Bubble size &  \SI{38}{\micro m} \\
+Depletion length & \SI{16.9}{cm} \\
+Dephasing length & \SI{33.5}{cm} \\
+Acceleration length for 1 GeV & \SI{2.4}{cm} \\
+Acceleration length for 3 GeV & \SI{7.2}{cm} \\
+       \bottomrule
+   \end{tabular}
+   \label{laserparameters}
+%   \vspace*{-\baselineskip}
+\end{table}
+
+
+
+\subsection{Magnet Design}
+The superconducting design of the \SI{1}{GeV} ring (see Fig XX) is laid out as four $90\,\rm{-degree}$ sector dipoles, with the injection system located in the middle of a \SI{2}{m} drift, enclosed by a pair of focusing quadrupole doublets (strengths $\sim$ \SI{50}{T/m}, \SI{100}{T/m}) used to begin transport of the diverging electron beam born from the laser wakefield injector. The wiggler is located in the opposing drift space, and the alternate drift spaces are each \SI{0.5}{m}, leaving enough space for limited diagnostics.
+\begin{lattice}
+    \marker{injector}
+    \drift{1}
+    \dipole{B1}{1.3125}{-90}
+    \drift{2}
+    \dipole{B2}{1.3125}{-90}
+    \drift{1}
+    \marker{wiggler}
+    \drift{1}
+    \dipole{B3}{1.3125}{-90}
+    \drift{2}
+    \dipole{B4}{1.3125}{-90}
+    \drift{1}
+  \end{lattice}
+	
+\subsection{Production of Radiation}
+
+Table \ref{tab:radiation}  details the radiation source for various design parameters.  For all sets of parameters, a standard length of $2 \text{m}$ was chosen for the undulating magnetic field region resulting in the electron pulse emitting x-rays for approximately $6.7 \text{nsec}$ pulses before the electron pulse is scraped by the apertures.  As can be seen in the table, x-ray energy was designed to either be within the water window ($0.4 \text{keV}$) or to be fairly hard ($10 \text{keV}$) depending on the energy of the electron pulse.  The chosen parameters result in the source being near the wiggler/undulator transition or well within the wiggler regime, respectively, as can be seen by the parameter K.  Of the chosen parameter sets, the $1 GeV$ electrons with the superconducting bending magnetics ($10 \text{T}$) resulted in the largest brightness.
+
+\begin{table*}[t]
+  \centering
+  \caption{Chosen (first box) and derived (second box) parameters detailing X-ray source. }
+  \label{tab:radiation}
+  \begin{tabular}{|c|ccc|}
+    \hline
+    $\text{E}_\text{electron} (\text{GeV})$ &  $1.0$ & $1.0$ & $3.0$ \\
+    $\text{B}_\text{turn} (\text{T})$ & $1.5$ & $10.0$ & $10.0$ \\
+    $\text{E}_\text{photon}$ (\text{keV}) & $0.4$ & $0.4$ & $10.0$ \\
+    $\lambda_\text{wiggler}$ (\text{mm}) & $15$ & $15$ & $100$ \\
+    \hline
+    $\text{B}_\text{wiggler} (\text{T})$ & $2.0$ & $2.0$ & $5.6$ \\
+    $\text{K}$ & $0.84$ & $0.84$ & $16$ \\
+    $\text{E}_\text{radiated} (\text{keV})$ & $2.1$ & $2.1$ & $140$ \\
+    $\text{Brilliance per electron lifetime} \left ( \frac{\text{photons}}{\text{mm}^2 \text{mrad}^2 \text{sec}} \right )$ & $3.3 \times 10^{10}$ & $8.7  \times 10^{10}$ & $5.9  \times 10^{10}$ \\
+    $\text{Brilliance per spill} \left ( \frac{\text{photons}}{\text{mm}^2 \text{mrad}^2 \text{sec}} \right )$& $4.7 \times 10^{15}$ &  $78 \times 10^{15}$ & $27  \times 10^{15}$ \\
+    $\text{x-ray train duration} ( \mu\text{sec})$ & $60$ & $1.1$ & $2.2$\\
+    \hline 
+  \end{tabular}
+\end{table*}
+ 
+\section{DISCUSSION}
+
+Here is an estimation of the Gas flow and beam round-trip based plasma clearance.
+
+Gas Flow velocity from typical gas jets (worked out from [1]) : $M = 20 \sim 20\,\rm{km/sec}$ Beam "transit-time" for a \SI{10}{m} ring : $\sim$ \SI{30}{ns} Gas flow distance in beam “transit time” :$\sim$SI{600}{$\mu$m} $10^{14}\,\rm{W/cm}^2$ ionization thresh. (ASSUME) - plasma col radius (\SI{35}{$\mu$m} laser) : \SI{142.64} {$\mu$m}
+
+This “back of the envelope calculation” for a \SI{10}{m} ring with \SI{20}{km/sec} Gas jet flow velocity [1] suggest that the plasma column has already propagated far enough to eliminate the possibility of its any further interaction with the beam. So, the electron beam is only likely to interact with the residual gas and not the laser-ionized plasma column. Thus, the interaction process of the beam is dominated by random scattering off the gas (which leads to a divergence growth of the order of micro-rad) as opposed to a coherent lensing of the order of milli-rad by the plasma [2]. Since, we know that the accelerated beam charge is only \SI{10}{s} of pC and its dimensions about $\sigma_r = 5\mu\rm{m}$ / $\sigma_z = 10\,\mu\rm{m}$, it is unlikely that the beam will ionize any gas.
+
+\section{CONCLUSIONS}
+
+In this report we propose different design solutions for a compact ring-based X-ray source with an on-orbit and on-energy laser-plasma injector. We use four 90 degrees bending magnets to keep the particles on a circular orbit, the electrons are self-injected and accelerated by the plasma wakefield of a gas-jet excited by a \SI{400}{TW} laser system, and the desired radiation is created by a wiggler magnet. The (peak/average) brilliance is calculated in section xx and reaches up to xx photons/(mm2 mrad2). Even though modern light sources routinely create a/an (peak/average) brilliance in the order of $10^{20}\,\rm{photons/(mm}^2 \rm{mrad}^2 0.1\%\rm{BW})$ \cite{DESY}, this design can be considered attractive due to its compactness and small footprint.
+
+The design presented is very promising with respect to current compact synchrotron light source technology. There exist designs for laser-plasma produced keV X-ray light sources, with betatron oscillations smaller than \SI{2.5}{$\mu$m}\cite{PRODRAD}. In addition, a number of proofs-of-concepts have been created \cite{SYNCHRRAD}\cite{COMPLIGHTS}\cite{PRODKEVS}. Furthermore, there exist small synchrotron sources with bending and focusing magnets on the order of \SI{2.7}{Tesla} which use microtrons as injectors.\cite{COMPLIGHTS2} There exist many possible uses for the compact high brilliance synchrotron source. Previous work has been done in constructed compact light sources for use in a variety of medical applications, such as emphysema diagnosis \cite{DIAG} and improving CT scanners \cite{COMPTOMO}\cite{CONTTOMO}. Another, more exotic use would be for the continually goal of increasing light intensity in the pursuit of reaching the Schwinger limit in order to produce matter-antimatter pairs using extremely high fields \cite{LIGHTINT}. Future work on the design is needed in order to increase the brilliance of the output synchrotron radiation and to determine the optimum quadrupole aperture sizes. Brilliance is measured in units of photons/s/mm$^2$/mrad$^2$/0.1\%BW, where BW refers to the bandwidth of the central wavelength or frequency. As a result, increasing the brilliance could be accomplished by increasing the photon flux (itself accomplished by creating a tighter synchrotron light beam and radiating more photons faster) or by narrowing the range of frequencies in the output. Possible ideas for increasing photon flux include a wider quadrupole aperture to reduce scraping of the electron beam contained within the main ring or combining outputs from multiple electron bunch passes through the undulator. In addition, multiple compact synchrotron light sources have been made that are an order of magnitude smaller in dimensions (fitting on tabletops for example) \cite{PORTSYNCH}\cite{BRIGHTSYNCH}, so further work would be put into reducing the synchrotron's radius.
+
+\begin{thebibliography}{99}
+\bibitem{UNIFYINGPHYSICS} Unifying physics of accelerators, lasers and plasma, A. Seryi, CRC Press, 2015.
+
+\bibitem{DESY} DESY Photon science: \verb"http://photon-science.desy.de/research/studentsteaching/sr_and_fel_basics/fel_basics/tdr_spectral_characteristics/index_eng.html" (15.07.2016).
+
+\bibitem{PRODRAD} Albert, F., et al. "Full characterization of a laser-produced keV x-ray betatron source." Plasma Physics and Controlled Fusion 50.12 (2008): 124008.
+
+\bibitem{SYNCHRRAD} Schlenvoigt, Hans-Peter. "Synchrotron radiation sources driven by laser-plasma accelerators." (2009). 
+
+\bibitem{COMPLIGHTS} Loewen, Roderick J. A compact light source: design and technical feasibility study of a laser-electron storage ring X-ray source. Stanford CA: Stanford University, 2003. 
+
+\bibitem{PRODKEVS} Rousse, Antoine, et al. "Production of a keV X-ray beam from synchrotron radiation in relativistic laser-plasma interaction." Physical review letters 93.13 (2004): 135005.
+
+\bibitem{COMPLIGHTS2} Yoshida, K., T. Takayama, and T. Hori. "Compact synchrotron light source of the HSRC." Journal of synchrotron radiation 5.3 (1998): 345-347.
+
+\bibitem{DIAG} Schleede, Simone, et al. "Emphysema diagnosis using X-ray dark-field imaging at a laser-driven compact synchrotron light source." Proceedings of the National Academy of Sciences 109.44 (2012): 17880-17885. 
+
+\bibitem{COMPTOMO} Dilmanian, F. A. "Computed tomography with monochromatic x rays."American journal of physiologic imaging 7.3-4 (1991): 175-193.
+
+\bibitem{CONTTOMO} Eggl, Elena, et al. "X-ray phase-contrast tomography with a compact laser-driven synchrotron source." Proceedings of the National Academy of Sciences 112.18 (2015): 5567-5572. 
+
+\bibitem{LIGHTINT} Bulanov, Sergei V., Timur Esirkepov, and Toshiki Tajima. "Light intensification towards the Schwinger limit." Physical review letters 91.8 (2003): 085001.
+
+\bibitem{PORTSYNCH} Yamada, Hironari, et al. "Portable synchrotron hard X-ray source MIRRORCLE-6x for X-ray imaging." Proceedings of the 8th International Conference on X-ray Microscopy) IPAP Conf. Ser. Vol. 7. 2005. 
+
+\bibitem{BRIGHTSYNCH} Kneip, S., et al. "Bright spatially coherent synchrotron X-rays from a table-top source." Nature Physics 6.12 (2010): 980-983.
+
+\end{thebibliography}
+\end{document}
