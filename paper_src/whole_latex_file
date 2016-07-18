@@ -82,8 +82,13 @@ We report here the results of one week long investigation performed during June 
 
 Combining the field of Laser plasma acceleration (LWPA) with the field of synchrotron light production, offers the possibility of creating compact accelerators and light sources, because of the high accelerating gradients that can be achieved using plasma.
 
-In this paper we want to show the results of our design study of a compact synchrotron light source that creates \SI{0.4}{keV} or \SI{10}{keV} photons. We estimate the design parameters of the compact light source, the achievable   brilliance, and we discuss the feasibility and challenges of the design. 
-Our design uses a laser plasma gas-jet accelerator to self-inject and accelerate electrons to either \SI{1}{GeV} or \SI{3}{GeV} \cite{UNIFYINGPHYSICS}. Right after plasma, the electrons are focused using a quadrupole doublet and they are kept on circular trajectory using four 90 degree dipole bending magnets (see figure xx). The desired radiation is produced by a \SI{2}{m} long wiggler magnet in one of the straight drift sections.
+In this paper we want to show the results of our design study of a compact synchrotron light source that creates \SI{0.4}{keV} (water-window) or \SI{10}{keV} photons. We estimate the design parameters of the compact light source, the achievable   brilliance, and we discuss the feasibility and challenges of the design. 
+Our design uses a laser plasma gas-jet accelerator to self-inject and accelerate electrons to either \SI{1}{GeV} or \SI{3}{GeV} \cite{UNIFYINGPHYSICS}. Right after plasma, the electrons are focused using a quadrupole doublet  and they are kept on circular trajectory using four 90 degree dipole bending magnets (super-conducting or normal conducting) (see figure xx). The desired radiation is produced by a \SI{2}{m} long wiggler magnet in one of the straight drift sections. We will discuss the following three options: 
+\begin{itemize}
+\item \SI{0.4}{keV} photons produced by a \SI{1}{GeV} electron beam and normal-conducting magnets.
+\item \SI{0.4}{keV} photons produced by a \SI{1}{GeV} electron beam and super-conducting magnets.
+\item \SI{10}{keV} photons produced by a \SI{3}{GeV} electron beam and super-conducting magnets.
+\end{itemize}
 
 Additionally we want to discuss the parameters of the radiation produced by the dipole bending magnets and the betatron motion of the electron beam in the plasma bubble. A compton light source could be realized by making the electron bunch collide with a laser pulse.
 
@@ -92,10 +97,28 @@ Additionally we want to discuss the parameters of the radiation produced by the 
 
 The laser wakefield acceleration and injection stage provides the electron beam for the compact ring. An intense laser pulse from a Ti:Sapphire laser impinges on a gas jet, ionizes the plasma, and creates strong plasma wakefields to accelerate and self inject electrons. The laser pulse is injected through a window in the bending dipole.
 
-We choose to use a typical Ti:Sapphire laser system with a laser wavelength of $780\,\rm{nm}$, a pulse duration of $50\,\rm{fs}$, a maximum laser power of $400\,\rm{TW}$, and a laser spot size of $3.8\,\rm{nm}$. The laser intensity is approximately $9.9*10^{18}\,\rm{W/cm}^2$ which corresponds to an $a_0$ of about $2.1$ for a Gaussian radial laser distribution and $20\,\rm{J}$ of energy per pulse.
-The chosen plasma density of the gas-jet is \SI{1.75e17}{cm^-3} and optimizes the achievable maximum electron energy. We also made sure that the laser frequency is above the critical plasma frequency.
+We choose to use a typical Ti:Sapphire laser system with a laser wavelength of $\lambda_l = 780\,\rm{nm}$, a pulse duration of $50\,\rm{fs}$, a maximum laser power of $400\,\rm{TW}$, and a laser spot size of $3.8\,\rm{nm}$ [reference?]. The laser intensity $I$ is then approximately $9.9\cdot10^{18}\,\rm{W/cm}^2$ which corresponds to an $a_0$ 
+\begin{equation}
+a_0 \approx \left( \frac{I [\rm{W/cm}^2]}{1.37e18} \right) ^{\frac{1}{2}} \cdot \lambda_l[\mu\rm{m}]
+\end{equation}
+of about $2.1$ for a Gaussian radial laser distribution and $20\,\rm{J}$ of energy per pulse.
+The chosen plasma density of the gas-jet is $n = $\SI{1.75e17}{cm^-3} and optimizes the achievable maximum electron energy. We also made sure that the laser frequency is above the critical plasma frequency $\omega_c$
+\begin{equation}
+\omega_c = \frac{n^2}{4 \pi c^2 r_e}
+\end{equation}
+with $c$ the speed of light and $r_e$ the classical electron radius.
 
-The depletion and dephasing lengths for this injector system are $\sim 17\,\rm{cm}$ and $\sim 35\,\rm{cm}$ (cite used formulas), thus bounding our total possible acceleration length to $17\,\rm{cm}$. The maximum accelerating gradient (formula) is \SI{420}{MeV/cm}.
+The depletion $L_{dpl}$ and dephasing lengths $L_{dph}$ for this injector system are calculated with 
+\begin{equation}
+L_{dpl} = \frac{1}{2 a_0} \frac{\lambda_p^3}{\lambda_l^2}\, , 
+L_{dph} = \frac{1}{2} \frac{\lambda_p^3}{\lambda_l^2}
+\end{equation}
+
+to be $L_{dpl}\approx 17\,\rm{cm}$ and $L_{dph}\approx 35\,\rm{cm}$ , thus bounding our total possible acceleration length to $17\,\rm{cm}$. The maximum accelerating gradient $E_{max}$ was estimated with
+\begin{equation}
+eE_{max} = 1 \frac{\rm{eV}}{\rm{cm}} \cdot n^{1/2}[\rm{cm}^{-3}]
+\end{equation}
+to be \SI{420}{MeV/cm}.
 This means that our target energies of $1\,\rm{GeV}$ and $3\,\rm{GeV}$ can be reached in $2.4\,\rm{cm}$ and $7.2\,\rm{cm}$. This acceleration length may require a novel gas jet setup, particularly for the $3\,\rm{GeV}$ case.
 
 \begin{table}[hbt]
@@ -141,25 +164,51 @@ Acceleration length for 3 GeV & \SI{7.2}{cm} \\
 \end{table}
 
 \subsection{Magnet Design}
-The superconducting design of the \SI{1}{GeV} ring (see Fig XX) is laid out as four $90\,\rm{-degree}$ sector dipoles, with the injection system located in the middle of a \SI{2}{m} drift, enclosed by a pair of focusing quadrupole doublets (strengths $\sim$ \SI{50}{T/m}, \SI{100}{T/m}) used to begin transport of the diverging electron beam born from the laser wakefield injector. The wiggler is located in the opposing drift space, and the alternate drift spaces are each \SI{0.5}{m}, leaving enough space for limited diagnostics.
+The design of the compact ring (see Fig XX) is laid out as four $90\,\rm{-degree}$ sector dipoles, either \SI{10}{T} super-conducting (s.c.) or \SI{1.5}{T} normal conducting (n.c.) (Parameters see Table \ref{magnets}). The laser-plasma injection system is located in the middle of a \SI{2}{m} drift, enclosed by a pair of focusing quadrupole doublets (strengths $\sim$ \SI{50}{T/m}, \SI{100}{T/m}) used to begin transport of the diverging electron beam born from the laser wakefield injector. The wiggler is located in the opposing drift space, and the alternate drift spaces are each \SI{0.5}{m}, leaving enough space for limited diagnostics and collimators. The electron energy loss per turn is dominated by the synchrotron radiation loss $E_{sr}$ in the bending magnets. Since there is no accelerating section in our compact ring design, the number of turns $N_{turns}$ is limited.
+
+\begin{table}[hbt]
+%   \vspace*{-.5\baselineskip}
+   \centering
+   \caption{Dipole bending magnet Parameters}
+   \begin{tabular}{lccc}
+       \toprule
+\textbf{Parameter} & \textbf{\SI{1}{GeV} n.c.} & \textbf{\SI{1}{GeV} s.c.} & \textbf{\SI{1}{GeV} s.c.}\\
+Bend. strength & 1.5 T & 10 T m & 10 T\\
+Bend. radius & 2.23 m & 0.84 m & 1.02 m\\
+Circumf. & 19.1 m & 7.1 m & 9.4 m\\
+$E_{sr}$/turn & 40 keV & 260 keV & 7 MeV\\
+$N_{turns}$ & 300 & 530 & 16\\
+       \bottomrule
+   \end{tabular}
+   \label{magnets}
+%   \vspace*{-\baselineskip}
+\end{table}
+
+\begin{figure}
 \begin{lattice}
-    \marker{injector}
-    \drift{1}
-    \dipole{B1}{1.3125}{-90}
-    \drift{2}
-    \dipole{B2}{1.3125}{-90}
-    \drift{1}
-    \marker{wiggler}
-    \drift{1}
-    \dipole{B3}{1.3125}{-90}
-    \drift{2}
-    \dipole{B4}{1.3125}{-90}
-    \drift{1}
+\source{Laser beam}{0.1}[0.4]
+    \drift{1.5}
+		\kicker{}{0.15}[0.2]
+		\marker{Plasma Injector + focusing doublet}[0.25]
+		\kicker{}{0.15}[0.2]
+		\drift{0.4}
+    \dipole{B1}{0.8}{-90}
+    \drift{0.125}
+		\drift{0.125}
+    \dipole{B2}{0.8}{-90}
+    \drift{0.1}
+		\beamdump{Wiggler}{0.8}[0.5]
+    \drift{0.1}
+    \dipole{B3}{0.8}{-90}
+    \drift{0.25}
+    \dipole{B4}{0.8}{-90}
+    \drift{0.5}
   \end{lattice}
-	
+\end{figure}
+
 \subsection{Production of Radiation}
 
-Table \ref{tab:radiation} details the radiation source parameters for all considered design versions. A standard length of $2 \text{m}$ was chosen for the undulating magnetic field region resulting in the electron pulse emitting x-rays for approximately $6.7 \text{nsec}$ pulses before the electron pulse is scraped by the apertures.  As can be seen in the table, x-ray energy was designed to either be within the water window ($0.4 \text{keV}$) or to be fairly hard ($10 \text{keV}$) depending on the energy of the injected electron pulse.  The chosen parameters result in the source being near the wiggler/undulator transition or well within the wiggler regime, respectively, as can be seen by the parameter K.  Of the chosen parameter sets, the $1 GeV$ electrons with the superconducting bending magnetics ($10 \text{T}$) resulted in the largest brightness.
+Table \ref{tab:radiation} details the radiation source parameters for all considered design versions. A standard length of $2\,\text{m}$ was chosen for the undulating magnetic field region resulting in the electron pulse emitting x-rays for approximately $6.7\,\text{ns}$ pulses before the electron pulse is scraped by the apertures.  As can be seen in the table, x-ray energy was designed to either be within the water window ($0.4\,\text{keV}$) or to be fairly hard ($10\,\text{keV}$) depending on the energy of the injected electron pulse.  The chosen parameters result in the source being near the wiggler/undulator transition or well within the wiggler regime, respectively, as can be seen by the parameter K.  Of the chosen parameter sets, the $1 GeV$ electrons with the superconducting bending magnets ($10 \text{T}$) resulted in the largest brightness.
 
 \begin{table*}[t]
   \centering
@@ -184,13 +233,13 @@ Table \ref{tab:radiation} details the radiation source parameters for all consid
  
 \section{DISCUSSION}
 
-In this section we would like to discuss the influence of the remaining gas/plasma from the injector onto to the circulating electron beam. The gas flow velocity from typical gas jets is $M = 20\,\rm{km/sec}$ \cite{GASFLOW}. One electron beam turn in a \SI{10}{m} cirumference ring takes $\sim$ \SI{30}{ns}, and the gas flow advances by $\sim$SI{600}{$\mu$m}. Taking $10^{14}\,\rm{W/cm}^2$ as ionization threshold of the plasma and assuming a radial laser size of \SI{35}{$\mu$m} gives a plasma channel radius of \SI{142.64} {$\mu$m}. This estimate suggest that the plasma column has already propagated far enough to eliminate the possibility of its any further interaction with the beam. So, the electron beam is only likely to interact with the residual gas and not the laser-ionized plasma column. Thus, the interaction process of the beam is dominated by random scattering off the gas (which leads to a divergence growth of the order of micro-rad) as opposed to a coherent lensing of the order of milli-rad by the plasma [2]. We think that it is unlikely that an electron beam with pC charge with a beam size of $\sigma_r = 5\mu\rm{m}$ and $\sigma_z = 10\,\mu\rm{m}$ ionizes gas.
+In this section we would like to discuss the influence of the remaining gas/plasma from the injector onto to the circulating electron beam. The gas flow velocity from typical gas jets is $M = 20\,\rm{km/sec}$ \cite{GASFLOW}. One electron beam turn in a \SI{10}{m} circumference ring takes $\sim$ \SI{30}{ns}, and the gas flow advances by $\sim$\SI{600}{$\mu$m}. Taking $10^{14}\,\rm{W/cm}^2$ as ionization threshold of the plasma and assuming a radial laser size of \SI{35}{$\mu$m} gives a plasma channel radius of \SI{142.64} {$\mu$m}. This estimate suggest that the plasma column has already propagated far enough to eliminate the possibility of its any further interaction with the beam. So, the electron beam is only likely to interact with the residual gas and not the laser-ionized plasma column. Thus, the interaction process of the beam is dominated by random scattering off the gas (which leads to a divergence growth of the order of micro-rad) as opposed to a coherent lensing of the order of milli-rad by the plasma [2]. We think that it is unlikely that an electron beam with pC charge with a beam size of $\sigma_r = 5\mu\rm{m}$ and $\sigma_z = 10\,\mu\rm{m}$ ionizes gas.
 
 \section{CONCLUSIONS}
 
 In this report we propose different design solutions for a compact ring-based X-ray source with an on-orbit and on-energy laser-plasma injector. We use four 90 degrees bending magnets to keep the particles on a circular orbit, the electrons are self-injected and accelerated by the plasma wakefield of a gas-jet excited by a \SI{400}{TW} laser system, and the desired radiation is created by a wiggler magnet. The peak brilliance is calculated in section xx and reaches up to $7.8e16$ photons/(mm2 mrad2). Even though modern light sources routinely create a peak brilliance in the order of $10^{25}\,\rm{photons/(mm}^2 \rm{mrad}^2 0.1\%\rm{BW})$ \cite{DESY}, this design can be considered attractive due to its compactness and small footprint.
 
-The design presented is also very promising with respect to current compact synchrotron light source technology. There exist designs for laser-plasma produced keV X-ray light sources, with betatron oscillations smaller than \SI{2.5}{$\mu$m}\cite{PRODRAD}. In addition, a number of proofs-of-concepts have been created \cite{SYNCHRRAD}\cite{COMPLIGHTS}\cite{PRODKEVS}. Furthermore, there exist small synchrotron sources with bending and focusing magnets on the order of \SI{2.7}{Tesla} which use microtrons as injectors.\cite{COMPLIGHTS2} There exist many possible uses for the compact high brilliance synchrotron source. Previous work has been done in constructed compact light sources for use in a variety of medical applications, such as emphysema diagnosis \cite{DIAG} and improving CT scanners \cite{COMPTOMO}\cite{CONTTOMO}. Another, more exotic use would be for the continually goal of increasing light intensity in the pursuit of reaching the Schwinger limit in order to produce matter-antimatter pairs using extremely high fields \cite{LIGHTINT}. Future work on the design is needed in order to increase the brilliance of the output synchrotron radiation and to determine the optimum quadrupole aperture sizes. Brilliance is measured in units of photons/s/mm$^2$/mrad$^2$/0.1\%BW, where BW refers to the bandwidth of the central wavelength or frequency. As a result, increasing the brilliance could be accomplished by increasing the photon flux (itself accomplished by creating a tighter synchrotron light beam and radiating more photons faster) or by narrowing the range of frequencies in the output. Possible ideas for increasing photon flux include a wider quadrupole aperture to reduce scraping of the electron beam contained within the main ring or combining outputs from multiple electron bunch passes through the undulator. In addition, multiple compact synchrotron light sources have been made that are an order of magnitude smaller in dimensions (fitting on tabletops for example) \cite{PORTSYNCH}\cite{BRIGHTSYNCH}, so further work would be put into reducing the synchrotron's radius.
+
 
 \begin{thebibliography}{99}
 \bibitem{UNIFYINGPHYSICS} Unifying physics of accelerators, lasers and plasma, A. Seryi, CRC Press, 2015.
