@@ -166,7 +166,7 @@ Acceleration length for 3 GeV & \SI{7.2}{cm} \\
 
 \subsection{Magnet Design}
 The design of the compact ring (see Figure \ref{schematics}) is laid out as four $90\,\rm{-degree}$ sector dipoles, either \SI{10}{T} super-conducting (s.c.) or \SI{1.5}{T} normal conducting (n.c.) (Parameters see Table \ref{magnets}). The laser-plasma injection system is located in the middle of a \SI{2}{m} drift, enclosed by a pair of focusing quadrupole doublets (strengths $\sim$ \SI{50}{T/m}, \SI{100}{T/m}) used to begin transport of the diverging electron beam born from the laser wakefield injector. 
-The focusing strength of the quadrupole magnets was calculated such, to parallelize  an electron beam with a radial size $\sigma_r = 12\,\mu m$ and a divergence of $0.5\,\rm{mrad}$.
+The focusing strengths of the quadrupole magnets were calculated such, to parallelize  an electron beam with a radial size $\sigma_r = 12\,\mu m$ and a divergence of $0.5\,\rm{mrad}$.
 The wiggler is located in the opposing drift space, and the alternate drift spaces are each \SI{0.5}{m}, leaving enough space for limited diagnostics and collimators. The electron energy loss per turn is dominated by the synchrotron radiation loss $E_{sr}$ in the bending magnets. The number of turns $N_{turns}$ is limited by the energy loss and the \SI{10}{cm} horizontal apertures  of the bending magnets, because there is no accelerating section in our compact ring design. The number of turns was calculated taking the radial electron beam size ($\sigma_r$) including energy spread and calculating how much energy can be lost before the beam touches the aperture.
 
 \begin{table}[hbt]
